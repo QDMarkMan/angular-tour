@@ -1,0 +1,21 @@
+<div>
+
+  <div class="heroAdd" style="margin-top: 10px">
+      <label>name:
+        <input [(ngModel)]=name type="text" placeholder="name">
+      </label>
+  </div>
+  
+  <h2>My Heroes</h2>
+  <!--  -->
+  <ul>
+    <li *ngFor="let item of heroes" (click)="onSelect(item)" [class.selected]="item === selectedHero">
+      <!-- <span>{{item.name}}</span>:
+      <span>{{item.id}}</span> -->
+      <a routerLink="/detail/{{item.id}}">
+        <span class="badge">{{item.id}}</span> {{item.name}}
+      </a>
+    </li>
+  </ul>
+  <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+</div>
