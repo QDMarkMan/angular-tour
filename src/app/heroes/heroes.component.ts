@@ -13,6 +13,9 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[]
   // 选中英雄
   selectedHero: Hero
+
+  // 禁用button
+  disabled: Boolean
   /**
    * 点击事件
    * @param data 
@@ -22,6 +25,10 @@ export class HeroesComponent implements OnInit {
   }
   getHeroes (): void {
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)
+  }
+  deleteHeroes () {
+    this.heroes.pop()
+    this.heroes.length  === 0 ? this.disabled = true : this.disabled = false
   }
   constructor(private heroService: HeroService) {
     

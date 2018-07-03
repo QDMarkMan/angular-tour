@@ -16,6 +16,10 @@
         <span class="badge">{{item.id}}</span> {{item.name}}
       </a>
     </li>
+    <p class="many" *ngIf="heroes.length > 3">
+      so many heros !!!
+    </p>
   </ul>
+  <button [disabled]="disabled" (click)="deleteHeroes()">抹掉一个英雄</button>
   <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
 </div>
